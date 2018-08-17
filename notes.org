@@ -1,0 +1,50 @@
+* Core Context Figure
+#+begin_src plantuml :file context.png
+caption Figure 1: High level context
+title Argus iOS Application Structure
+
+legend top right
+<i>Layers Legend</i>
+
+| |= Layer Name |
+|<back:#B0D6F9>    </back>| Frameworks (iOS Android Firebase ...) |
+|<back:#F2A49F>    </back>| Interactors (Use Cases) |
+|<back:#F9F8BF>    </back>| Entities (Data Models) |
+|<back:#B7FAC0>    </back>| Adapters (for external interfaces) |
+endlegend
+
+[Main (UI)] <<app>> #B0D6F9
+[Firebase] <<library>> #B0D6F9
+[Core] <<library>> #F2A49F
+[Authentication] <<library>> #B7FAC0
+[Persistence] <<library>> #B7FAC0
+[Test] <<temp>> #Cornsilk
+[CoreAuth] <<library>> #F2A49F
+[CorePersist] <<library>> #F2A49F
+[CoreLists] <<library>> #F2A49F
+[CoreXXX] <<library>> #F2A49F
+[CoreData] <<library>> #F9F8BF
+
+[Firebase] <-- [Authentication]
+[Firebase] <-- [Persistence]
+[Main (UI)] --> [Core]
+note left : Umbrella library
+[Authentication] --> [Core]
+[Persistence] --> [Core]
+[Core] --> [CoreAuth]
+[Core] --> [CoreLists]
+[Core] --> [CorePersist]
+[Core] --> [CoreXXX]
+note bottom : TBD
+[CoreAuth] <.. [Test]
+[CorePersist] <.. [Test]
+[CoreLists] <.. [Test]
+[CoreData] <.. [Test]
+note left : Temp TDD\nsupport classes
+[CoreAuth] --> [CoreData]
+[CorePersist] --> [CoreData]
+[CoreLists] --> [CoreData]
+#+end_src
+
+#+RESULTS:
+[[file:context.png]]
