@@ -7,14 +7,15 @@ legend top right
 <i>Layers Legend</i>
 
 | |= Layer Name |
-|<back:#B0D6F9>    </back>| Frameworks (iOS Android Firebase ...) |
-|<back:#F2A49F>    </back>| Interactors (Use Cases) |
-|<back:#F9F8BF>    </back>| Entities (Data Models) |
-|<back:#B7FAC0>    </back>| Adapters (for external interfaces) |
+|<back:#B0D6F9>    </back>| Frameworks & Drivers |
+|<back:#B7FAC0>    </back>| Interface Adapters |
+|<back:#F2A49F>    </back>| Use Cases |
+|<back:#F9F8BF>    </back>| Entities |
 endlegend
 
-[Main (UI)] <<app>> #B0D6F9
-[Firebase] <<library>> #B0D6F9
+[iOS] <<framework>> #B0D6F9
+[GUI] <<app>> #B7FAC0
+[Firebase] <<framework>> #B0D6F9
 [Core] <<library>> #F2A49F
 [Authentication] <<library>> #B7FAC0
 [Persistence] <<library>> #B7FAC0
@@ -25,9 +26,10 @@ endlegend
 [CoreXXX] <<library>> #F2A49F
 [CoreData] <<library>> #F9F8BF
 
-[Firebase] <-- [Authentication]
-[Firebase] <-- [Persistence]
-[Main (UI)] --> [Core]
+[iOS] --> [GUI]
+[Firebase] --> [Authentication]
+[Firebase] --> [Persistence]
+[GUI] --> [Core]
 note left : Umbrella library
 [Authentication] --> [Core]
 [Persistence] --> [Core]
