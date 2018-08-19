@@ -14,12 +14,13 @@ legend top right
 endlegend
 
 [iOS] <<framework>> #B0D6F9
-[GUI] <<app>> #B7FAC0
 [Firebase] <<framework>> #B0D6F9
-[Core] <<library>> #F2A49F
+
+[GUI] <<app>> #B7FAC0
 [Authentication] <<library>> #B7FAC0
 [Persistence] <<library>> #B7FAC0
-[Test] <<temp>> #Cornsilk
+
+[Core] <<library>> #F2A49F
 [CoreAuth] <<library>> #F2A49F
 [CorePersist] <<library>> #F2A49F
 [CoreVideo] <<library>> #F2A49F
@@ -27,29 +28,37 @@ endlegend
 [CoreXXX] <<library>> #F2A49F
 [CoreData] <<library>> #F9F8BF
 
+[Test] <<temp>> #Cornsilk
+
 [iOS] --> [GUI]
 [Firebase] --> [Authentication]
 [Firebase] --> [Persistence]
+
 [GUI] --> [Core]
-note left : Umbrella library
 [Authentication] --> [Core]
 [Persistence] --> [Core]
+
 [Core] --> [CoreAuth]
 [Core] --> [CoreLists]
 [Core] --> [CorePersist]
 [Core] --> [CoreVideo]
 [Core] --> [CoreXXX]
-note bottom : TBD Use Cases
+
+[CoreAuth] --> [CoreData]
+[CorePersist] --> [CoreData]
+[CoreVideo] --> [CoreData]
+[CoreLists] --> [CoreData]
+
 [CoreAuth] <.. [Test]
 [CorePersist] <.. [Test]
 [CoreVideo] <.. [Test]
 [CoreLists] <.. [Test]
 [CoreData] <.. [Test]
-note left : Temp TDD\nsupport classes
-[CoreAuth] --> [CoreData]
-[CorePersist] --> [CoreData]
-[CoreVideo] --> [CoreData]
-[CoreLists] --> [CoreData]
+
+note right of [Core] : Umbrella library
+note bottom of [CoreXXX] : TBD Use Cases
+note left of [Test] : Temp TDD\nsupport classes
+note left of [GUI] : MVP
 #+end_src
 
 #+RESULTS:
