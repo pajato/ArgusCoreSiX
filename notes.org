@@ -22,6 +22,7 @@ endlegend
 [Test] <<temp>> #Cornsilk
 [CoreAuth] <<library>> #F2A49F
 [CorePersist] <<library>> #F2A49F
+[CoreVideo] <<library>> #F2A49F
 [CoreLists] <<library>> #F2A49F
 [CoreXXX] <<library>> #F2A49F
 [CoreData] <<library>> #F9F8BF
@@ -36,15 +37,18 @@ note left : Umbrella library
 [Core] --> [CoreAuth]
 [Core] --> [CoreLists]
 [Core] --> [CorePersist]
+[Core] --> [CoreVideo]
 [Core] --> [CoreXXX]
-note bottom : TBD
+note bottom : TBD Use Cases
 [CoreAuth] <.. [Test]
 [CorePersist] <.. [Test]
+[CoreVideo] <.. [Test]
 [CoreLists] <.. [Test]
 [CoreData] <.. [Test]
 note left : Temp TDD\nsupport classes
 [CoreAuth] --> [CoreData]
 [CorePersist] --> [CoreData]
+[CoreVideo] --> [CoreData]
 [CoreLists] --> [CoreData]
 #+end_src
 
